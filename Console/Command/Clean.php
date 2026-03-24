@@ -14,6 +14,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
 
+#[\AllowDynamicProperties]
 class Clean extends Command
 {
     /**
@@ -72,6 +73,8 @@ class Clean extends Command
             $progressBar->advance();
         }
         $progressBar->finish();
+
+        return \Magento\Framework\Console\Cli::RETURN_SUCCESS;
     }
 
     /**
