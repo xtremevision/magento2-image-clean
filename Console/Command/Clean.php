@@ -14,13 +14,22 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
 
-#[\AllowDynamicProperties]
 class Clean extends Command
 {
     /**
      * @var \HS\ImageClean\Model\imageFactory
      */
     protected $_imageFactory;
+
+    /**
+     * @var \Magento\Framework\Filesystem\Driver\File
+     */
+    protected $file;
+
+    /**
+     * @var \Magento\Framework\App\Filesystem\DirectoryList
+     */
+    protected $directoryList;
 
     public function __construct(
         \HS\ImageClean\Model\ImageFactory $ImageFactory,
